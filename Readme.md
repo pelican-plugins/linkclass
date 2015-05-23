@@ -26,18 +26,20 @@ the following variables:
 One of the possible uses of this plugins is for styling.  Suppose that we
 have the following in your article written with Markdown:
 
-    :::markdown
-    This is an [internal](intenal) link and this is an
-    [external](http://external.com) link.
+```markdown
+This is an [internal](intenal) link and this is an
+[external](http://external.com) link.
+```
 
 If the default values of the configuration variables are used, then a
  possible CSS setting would be:
 
-    :::css
-    a.external:before {
-        content: url('../images/external-link.png');
-        margin-right: 0.2em;
-    }
+```css
+a.external:before {
+    content: url('../images/external-link.png');
+    margin-right: 0.2em;
+}
+```
 
 (The file `external-link.png` is also distributed with this plugin.  Just
 copy it to the appropriate place in your website source tree, for instance
