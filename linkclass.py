@@ -30,8 +30,10 @@ def initialize (pelicanobj):
                   pelicanobj.settings.get ('LINKCLASS_INTERNAL_CLASS'),
               'external-class':
                   pelicanobj.settings.get ('LINKCLASS_EXTERNAL_CLASS')}
-    pelicanobj.settings ['MD_EXTENSIONS'].append (LinkClassExtension (config))
-
+    if 'extensions' in pelicanobj.settings ['MARKDOWN']:
+        pelicanobj.settings ['MARKDOWN'] ['extensions'].append (LinkClassExtension (config))
+    else:
+        pelicanobj.settings ['MARKDOWN'] ['extensions'] = [ LinkClassExtension (config) ]
 
 def register ():
     """Register the Link Class plugin with Pelican"""
