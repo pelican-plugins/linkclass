@@ -49,8 +49,19 @@ Then, the result will look like the following:
 
 ![figure](linkclass-example.png)
 
+Note that this plugin also works with reference-style links, as in the
+following example:
+
+```markdown
+This is an [internal][internal] link and this is an
+[external][external] link.
+
+ [internal]: internal
+ [external]: http://external.com
+```
+
 ## Author
 
-Copyright (C) 2015  Rafael Laboissiere (<rafael@laboissiere.net>)
+Copyright (C) 2015, 2017  Rafael Laboissiere (<rafael@laboissiere.net>)
 
 Released under the GNU Affero Public License, version 3 or later.  No warranties.
