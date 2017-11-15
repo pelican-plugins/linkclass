@@ -40,7 +40,7 @@ inline-style hyperlinks"""
         ## Store the configuration dict
         self.config = config
 
-        ## Initialize the parent classes
+        ## Initialize the parent class
         LinkPattern.__init__ (self, LINK_RE, md)
 
     def handleMatch (self, m):
@@ -62,7 +62,7 @@ reference-style hyperlinks"""
         ## Store the configuration dict
         self.config = config
 
-        ## Initialize the parent classes
+        ## Initialize the parent class
         ReferencePattern.__init__ (self, REFERENCE_RE, md)
 
     def handleMatch (self, m):
