@@ -1,6 +1,6 @@
 """Unit testing suite for the Link Class Plugin"""
 
-## Copyright (C) 2015  Rafael Laboissiere <rafael@laboissiere.net>
+## Copyright (C) 2015, 2017  Rafael Laboissiere <rafael@laboissiere.net>
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Affero Public License as published by
@@ -21,21 +21,36 @@ import unittest
 from tempfile import mkdtemp
 from shutil import rmtree
 
-from . import linkclass
+import linkclass
 from pelican import Pelican
 from pelican.settings import read_settings
 
 
-INTERNAL_CLASS = 'foo'
-INTERNAL_TEXT = 'internal'
-INTERNAL_LINK = 'internal'
+INTERNAL_CLASS = 'internal'
+EXTERNAL_CLASS = 'external'
 
-EXTERNAL_CLASS = 'bar'
-EXTERNAL_TEXT = 'external'
-EXTERNAL_LINK_HTTP = 'http://example.org'
-EXTERNAL_LINK_HTTPS = 'https://example.org'
+INTERNAL_INLINE_TEXT = 'internal inline text'
+INTERNAL_INLINE_LINK = 'internal inline link'
 
-LINK_PATTERN = '<a class="%s" href="%s">%s</a></p>'
+INTERNAL_REFERENCE_TEXT = 'internal reference text'
+INTERNAL_REFERENCE_LABEL = 'internal reference label'
+INTERNAL_REFERENCE_LINK = 'internal-reference-link'
+
+EXTERNAL_INLINE_TEXT_HTTP = 'external inline text http'
+EXTERNAL_INLINE_LINK_HTTP = 'https://inline.org'
+
+EXTERNAL_REFERENCE_TEXT_HTTP = 'external reference text http'
+EXTERNAL_REFERENCE_LABEL_HTTP = 'external reference label http'
+EXTERNAL_REFERENCE_LINK_HTTP = 'https://reference.org'
+
+EXTERNAL_INLINE_TEXT_HTTPS = 'external inline text https'
+EXTERNAL_INLINE_LINK_HTTPS = 'https://inline.org'
+
+EXTERNAL_REFERENCE_TEXT_HTTPS = 'external reference text https'
+EXTERNAL_REFERENCE_LABEL_HTTPS = 'external reference label https'
+EXTERNAL_REFERENCE_LINK_HTTPS = 'https://reference.org'
+
+LINK_PATTERN = '<a class="%s" href="%s">%s</a>'
 
 TEST_FILE_STEM = 'test'
 TEST_DIR_PREFIX = 'pelicantests.'
@@ -61,19 +76,32 @@ class TestLinkClass (unittest.TestCase):
         fid = open (os.path.join (self.content_path, '%s.md' % TEST_FILE_STEM),
                     'w')
         fid.write ('''Title: Test
-Date:
+Date: 1970-01-01
 
-[%s](%s)
+This is an [%s](%s), inline-style link.
+This is an [%s](%s), inline-style link (with http URL).
+This is an [%s](%s), inline-style link (with https URL).
 
-[%s](%s)
+This is an [%s][%s], reference-style link.
+This is an [%s][%s], reference-style link (with http URL).
+This is an [%s][%s], reference-style link (with https URL).
 
-[%s](%s)
-''' % (INTERNAL_TEXT, INTERNAL_LINK,
-       EXTERNAL_TEXT, EXTERNAL_LINK_HTTP,
-       EXTERNAL_TEXT, EXTERNAL_LINK_HTTPS))
+ [%s]: %s
+ [%s]: %s
+ [%s]: %s
+
+''' % (INTERNAL_INLINE_TEXT, INTERNAL_INLINE_LINK,
+       EXTERNAL_INLINE_TEXT_HTTP, EXTERNAL_INLINE_LINK_HTTP,
+       EXTERNAL_INLINE_TEXT_HTTPS, EXTERNAL_INLINE_LINK_HTTP,
+       INTERNAL_REFERENCE_TEXT, INTERNAL_REFERENCE_LABEL,
+       EXTERNAL_REFERENCE_TEXT_HTTP, EXTERNAL_REFERENCE_LABEL_HTTP,
+       EXTERNAL_REFERENCE_TEXT_HTTPS, EXTERNAL_REFERENCE_LABEL_HTTPS,
+       INTERNAL_REFERENCE_LABEL, INTERNAL_REFERENCE_LINK,
+       EXTERNAL_REFERENCE_LABEL_HTTP, EXTERNAL_REFERENCE_LINK_HTTP,
+       EXTERNAL_REFERENCE_LABEL_HTTPS, EXTERNAL_REFERENCE_LINK_HTTPS))
         fid.close ()
 
-        ## Run teh Pelican instance
+        ## Run the Pelican instance
         self.settings = read_settings (override = settings)
         pelican = Pelican (settings = self.settings)
         pelican.run ()
@@ -97,22 +125,43 @@ Date:
         return found
 
 
-    def test_internal (self):
-        """Test for the internal link"""
+    def test_internal_inline (self):
+        """Test for the internal inline link"""
         assert self.search (LINK_PATTERN % (INTERNAL_CLASS,
-                                            INTERNAL_LINK,
-                                            INTERNAL_TEXT))
+                                            INTERNAL_INLINE_LINK,
+                                            INTERNAL_INLINE_TEXT))
 
 
-    def test_external_http (self):
-        """Test for the external http link"""
+    def test_external_inline_http (self):
+        """Test for the external http inline link"""
         assert self.search (LINK_PATTERN % (EXTERNAL_CLASS,
-                                            EXTERNAL_LINK_HTTP,
-                                            EXTERNAL_TEXT))
+                                            EXTERNAL_INLINE_LINK_HTTP,
+                                            EXTERNAL_INLINE_TEXT_HTTPS))
 
 
-    def test_external_https (self):
-        """Test for the external https link"""
+    def test_external_inline_https (self):
+        """Test for the external https inline link"""
         assert self.search (LINK_PATTERN % (EXTERNAL_CLASS,
-                                            EXTERNAL_LINK_HTTPS,
-                                            EXTERNAL_TEXT))
+                                            EXTERNAL_INLINE_LINK_HTTPS,
+                                            EXTERNAL_INLINE_TEXT_HTTPS))
+
+
+    def test_internal_reference (self):
+        """Test for the internal reference link"""
+        assert self.search (LINK_PATTERN % (INTERNAL_CLASS,
+                                            INTERNAL_REFERENCE_LINK,
+                                            INTERNAL_REFERENCE_TEXT))
+
+
+    def test_external_reference_http (self):
+        """Test for the external http reference link"""
+        assert self.search (LINK_PATTERN % (EXTERNAL_CLASS,
+                                            EXTERNAL_REFERENCE_LINK_HTTP,
+                                            EXTERNAL_REFERENCE_TEXT_HTTPS))
+
+
+    def test_external_reference_https (self):
+        """Test for the external https reference link"""
+        assert self.search (LINK_PATTERN % (EXTERNAL_CLASS,
+                                            EXTERNAL_REFERENCE_LINK_HTTPS,
+                                            EXTERNAL_REFERENCE_TEXT_HTTPS))
