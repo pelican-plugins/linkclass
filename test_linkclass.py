@@ -23,7 +23,7 @@ from tempfile import mkdtemp
 from shutil import rmtree
 from six import StringIO
 
-import linkclass
+from . import linkclass
 from pelican import Pelican
 from pelican.settings import read_settings
 
