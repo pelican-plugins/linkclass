@@ -17,9 +17,11 @@
 
 import os
 import re
+import sys
 import unittest
 from tempfile import mkdtemp
 from shutil import rmtree
+from six import StringIO
 
 import linkclass
 from pelican import Pelican
@@ -104,7 +106,10 @@ This is an [%s][%s], reference-style link (with https URL).
         ## Run the Pelican instance
         self.settings = read_settings (override = settings)
         pelican = Pelican (settings = self.settings)
+        saved_stdout = sys.stdout
+        sys.stdout = StringIO ()
         pelican.run ()
+        sys.stdout = saved_stdout
 
 
     def tearDown (self):
