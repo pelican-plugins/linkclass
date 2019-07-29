@@ -1,6 +1,6 @@
 """Link Class Plugin for Pelican"""
 
-## Copyright (C) 2015  Rafael Laboissiere
+## Copyright (C) 2015, 2019  Rafael Laboissiere
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Affero Public License as published by
@@ -19,22 +19,32 @@
 import os
 import sys
 from pelican import signals
-from . mdx_linkclass import LinkClassExtension
+from . mdx_linkclass import LinkClassExtension, LC_CONFIG, LC_HELP
 
+def addLinkClass (gen):
 
-def initialize (pelicanobj):
-    """Initialize the Link Class plugin"""
-    pelicanobj.settings.setdefault ('LINKCLASS_INTERNAL_CLASS', 'internal')
-    pelicanobj.settings.setdefault ('LINKCLASS_EXTERNAL_CLASS', 'external')
-    config = {'internal-class':
-                  pelicanobj.settings.get ('LINKCLASS_INTERNAL_CLASS'),
-              'external-class':
-                  pelicanobj.settings.get ('LINKCLASS_EXTERNAL_CLASS')}
-    if 'extensions' in pelicanobj.settings ['MARKDOWN']:
-        pelicanobj.settings ['MARKDOWN'] ['extensions'].append (LinkClassExtension (config))
-    else:
-        pelicanobj.settings ['MARKDOWN'] ['extensions'] = [ LinkClassExtension (config) ]
+    if not gen.settings.get ('MARKDOWN'):
+        from pelican.settings import DEFAULT_CONFIG
+        gen.settings ['MARKDOWN'] = DEFAULT_CONFIG ['MARKDOWN']
+
+    if gen.settings.get ('LINKCLASS'):
+        for param, default, helptext in gen.settings.get ('LINKCLASS'):
+            LC_CONFIG [param] = default
+            LC_HELP [param] = helptext
+
+    if LinkClassExtension not in gen.settings ['MARKDOWN']:
+        config = dict ()
+        for key, value in LC_CONFIG.items ():
+            config [key] = value
+        for key, value in gen.settings.items ():
+            if key in LC_CONFIG:
+                config [key] = value
+        lcobj = LinkClassExtension (config)
+        try:
+            gen.settings ['MARKDOWN'] ['extensions'].append (lcobj)
+        except (KeyError):
+            gen.settings ['MARKDOWN'] ['extensions'] = [lcobj]
 
 def register ():
     """Register the Link Class plugin with Pelican"""
-    signals.initialized.connect (initialize)
+    signals.initialized.connect (addLinkClass)

@@ -1,6 +1,6 @@
 """Unit testing suite for the Link Class Plugin"""
 
-## Copyright (C) 2015, 2017  Rafael Laboissiere <rafael@laboissiere.net>
+## Copyright (C) 2015, 2017, 2019  Rafael Laboissiere <rafael@laboissiere.net>
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Affero Public License as published by
@@ -16,7 +16,7 @@
 ## along with this program.  If not, see http://www.gnu.org/licenses/.
 
 ## For running this test in a standalone-way, run:
-##     (cd .. ; python -Wd -m unittest discover)
+##     (cd .. ; python3 -Wd -m unittest discover)
 
 import os
 import re
@@ -70,9 +70,11 @@ class TestLinkClass (unittest.TestCase):
             'PATH': self.content_path,
             'OUTPUT_PATH': self.output_path,
             'PLUGINS': [linkclass],
-            'CACKHE_CONTENT': False,
-            'LINKCLASS_INTERNAL_CLASS': INTERNAL_CLASS,
-            'LINKCLASS_EXTERNAL_CLASS': EXTERNAL_CLASS
+            'CACHE_CONTENT': False,
+            'SITEURL': 'http://example.org',
+            'TIMEZONE': 'UTC',
+            'LINKCLASS': (('INTERNAL_CLASS', INTERNAL_CLASS, ''),
+                          ('EXTERNAL_CLASS', EXTERNAL_CLASS, ''))
         }
         if override:
             settings.update (override)
@@ -130,6 +132,7 @@ This is an [%s][%s], reference-style link (with https URL).
             if re.search (string, line):
                 found = True
                 break
+        fid.close ()
         return found
 
 
@@ -144,7 +147,7 @@ This is an [%s][%s], reference-style link (with https URL).
         """Test for the external http inline link"""
         assert self.search (LINK_PATTERN % (EXTERNAL_CLASS,
                                             EXTERNAL_INLINE_LINK_HTTP,
-                                            EXTERNAL_INLINE_TEXT_HTTPS))
+                                            EXTERNAL_INLINE_TEXT_HTTP))
 
 
     def test_external_inline_https (self):
