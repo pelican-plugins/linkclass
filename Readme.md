@@ -7,7 +7,9 @@ This plugin allows the setting of the class attribute of `<a>` elements
 external (i.e. starts with `http://` or `https://`) or internal to the
 Pelican-generated site.
 
-For now, this plugin only works with Markdown.
+For now, this plugin only works with Markdown.  It was tested with version
+3.0.1 of the Python Markdown module.  It may not work with previous
+versions.
 
 ## Usage
 
