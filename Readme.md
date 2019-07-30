@@ -34,7 +34,7 @@ One of the possible uses of this plugins is for styling.  Suppose that we
 have the following in your article written with Markdown:
 
 ```markdown
-This is an [internal](intenal) link and this is an
+This is an [internal](internal) link and this is an
 [external](http://external.com) link.
 ```
 
