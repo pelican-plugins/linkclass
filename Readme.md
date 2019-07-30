@@ -13,13 +13,18 @@ For now, this plugin only works with Markdown.
 
 ### User Settings
 
-The names of the classes can be specified in the Pelican setting files with
-the following variables:
+In order to avoid clashes with already-defined classes in the user CSS
+style sheets, it is possible to specify the name of the classes that will
+be used.  They can be specified in the Pelican setting files with the
+`LINKCLASS` variable, which must be defined as a list of tuples, like this:
 
-- `LINKCLASS_EXTERNAL_CLASS`: name of the class for external links
-  (defaults to `'external'`)
-- `LINKCLASS_INTERNAL_CLASS`: name of the class for internal links
-  (defaults to `'internal'`) 
+```python
+'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links')
+                'INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
+```
+
+The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are,
+respectively, `'external'` and `'internal'`.
 
 ### Styling the hyperlinks
 
