@@ -1,3 +1,5 @@
+[![travis\_build\_status](https://travis-ci.org/rlaboiss/pelican-linkclass.svg?branch=master)](https://travis-ci.org/rlaboiss/pelican-linkclass)
+
 # Link Class for Pelican
 
 ## Description
