@@ -3,5 +3,5 @@ python:
     - "3.7"
 cache: pip
 install:
-    - pip install -e git+https://github.com/getpelican/pelican.git#egg=pelican
+    - pip install Markdown -e git+https://github.com/getpelican/pelican.git#egg=pelican
 script: nosetests
