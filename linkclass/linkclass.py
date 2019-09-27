@@ -19,7 +19,7 @@
 import os
 import sys
 from pelican import signals
-from . mdx_linkclass import LinkClassExtension, LC_CONFIG, LC_HELP
+from mdx_linkclass import LinkClassExtension, LC_CONFIG, LC_HELP
 
 def addLinkClass (gen):
 
