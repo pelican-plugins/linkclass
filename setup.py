@@ -12,7 +12,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/rlaboiss/pelican-linkclass",
-    author="Rafael Laboissiere",
+    author="Rafael Laboissière",
     author_email="rafael@laboissiere.net",
     packages=['pelican_linkclass'],
     include_package_data=True,
