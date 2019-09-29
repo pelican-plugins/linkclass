@@ -69,6 +69,14 @@ This is an [internal][internal] link and this is an
  [external]: http://external.com
 ```
 
+## Acknowledgments
+
+Many thanks to [Yuliya Bagriy](https://github.com/aviskase) for setting up
+the package for [PyPI](https://pypi.org/) and [Lucas
+Cimon](https://github.com/Lucas-C) for fixing the issues with
+[pytest](https://pytest.org/) and the smooth integration into the Pelican
+repository as a sub-module.
+
 ## Author
 
 Copyright (C) 2015, 2017  Rafael Laboissiere (<rafael@laboissiere.net>)
