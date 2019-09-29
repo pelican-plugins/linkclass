@@ -15,7 +15,8 @@ versions.
 
 ## Installation
 
-This plugin [is available as package](https://pypi.org/project/pelican-linkclass/) at PyPI:
+This plugin [is available as a package](https://pypi.org/project/pelican-linkclass/)
+at PyPI:
 
 ```
 pip3 install pelican_linkclass
