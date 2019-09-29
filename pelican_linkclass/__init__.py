@@ -1,1 +1,1 @@
-from .linkclass import *
+from pelican_linkclass.linkclass import *
