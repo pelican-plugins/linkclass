@@ -56,7 +56,7 @@ in `theme/static/images/`.)
 
 Then, the result will look like the following:
 
-![figure](linkclass-example.png)
+![figure](https://github.com/rlaboiss/pelican-linkclass/raw/master/linkclass-example.png)
 
 Note that this plugin also works with reference-style links, as in the
 following example:
