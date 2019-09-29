@@ -13,6 +13,14 @@ For now, this plugin only works with Markdown.  It was tested with version
 3.0.1 of the Python Markdown module.  It may not work with previous
 versions.
 
+## Installation
+
+This plugin is available as a at PyPI:
+
+```
+pip3 install pelican_linkclass
+```
+
 ## Usage
 
 ### User Settings
