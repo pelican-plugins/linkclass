@@ -79,6 +79,6 @@ repository as a sub-module.
 
 ## Author
 
-Copyright (C) 2015, 2017  Rafael Laboissiere (<rafael@laboissiere.net>)
+Copyright (C) 2015, 2017, 2019  Rafael Laboissiere (<rafael@laboissiere.net>)
 
 Released under the GNU Affero Public License, version 3 or later.  No warranties.
