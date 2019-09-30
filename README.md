@@ -24,6 +24,18 @@ pip3 install pelican_linkclass
 
 ## Usage
 
+### Declaring the plugin
+
+This plugin used to be part of the [Pelican plugin
+repository](https://github.com/getpelican/pelican-plugins), but users
+should now install the plugin in their system (as above) and add to
+`pelicanconf.py` a configuration like the following:
+
+```python
+import pelican_linkclass
+PLUGINS = [pelican_linkclass,]
+```
+
 ### User Settings
 
 In order to avoid clashes with already-defined classes in the user CSS
