@@ -1,1 +1,1 @@
-from pelican_linkclass.linkclass import *
+from .linkclass import *  # NOQA

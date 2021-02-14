@@ -26,7 +26,7 @@ from tempfile import mkdtemp
 from shutil import rmtree
 from six import StringIO
 
-import pelican_linkclass as linkclass
+import linkclass
 from pelican import Pelican
 from pelican.settings import read_settings
 
