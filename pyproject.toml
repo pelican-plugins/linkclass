@@ -2,7 +2,7 @@
 name = "pelican-linkclass"
 version = "1.0.0"
 description = "Pelican plugin to set anchor tag's class attribute to differentiate between internal and external links"
-authors = ["Rafael Laboissiere <rafael@laboissiere.net>"]
+authors = ["Rafael Laboissière <rafael@laboissiere.net>"]
 license = "AGPL-3.0"
 readme = "README.md"
 keywords = ["pelican", "plugin", "markdown"]

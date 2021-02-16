@@ -100,6 +100,6 @@ Cimon](https://github.com/Lucas-C) for fixing the issues with
 Author
 ------
 
-Copyright (C) 2015, 2017, 2019  Rafael Laboissiere (<rafael@laboissiere.net>)
+Copyright (C) 2015, 2017, 2019  Rafael Laboissière (<rafael@laboissiere.net>)
 
 Released under the GNU Affero Public License, version 3 or later. No warranties.
