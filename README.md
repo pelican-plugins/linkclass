@@ -1,46 +1,34 @@
-[![travis\_build\_status](https://travis-ci.org/rlaboiss/pelican-linkclass.svg?branch=master)](https://travis-ci.org/rlaboiss/pelican-linkclass)
+Link Class: A Plugin for Pelican
+================================
 
-# Link Class for Pelican
+[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/linkclass/build)](https://github.com/pelican-plugins/linkclass/actions)
+[![PyPI Version](https://img.shields.io/pypi/v/pelican-linkclass)](https://pypi.org/project/pelican-linkclass/)
+![License](https://img.shields.io/pypi/l/pelican-linkclass?color=blue)
 
-## Description
-
-This plugin allows the setting of the class attribute of `<a>` elements
+This Pelican plugin allows you to set the class attribute of `<a>` elements
 (generated in Markdown by `[ext](link)`) according to whether the link is
-external (i.e. starts with `http://` or `https://`) or internal to the
+external (i.e., starts with `http://` or `https://`) or internal to the
 Pelican-generated site.
 
-For now, this plugin only works with Markdown.  It was tested with version
-3.0.1 of the Python Markdown module.  It may not work with previous
-versions.
+For now, this plugin only works with Markdown. It has been tested with version
+3.0+ of the Python-Markdown module and may not work with previous versions.
 
-## Installation
+Installation
+------------
 
 This plugin [is available as a package](https://pypi.org/project/pelican-linkclass/)
-at PyPI:
+at PyPI and can be installed via:
 
 ```
-pip3 install pelican_linkclass
+python -m pip install pelican-linkclass
 ```
 
-## Usage
-
-### Declaring the plugin
-
-This plugin used to be part of the [Pelican plugin
-repository](https://github.com/getpelican/pelican-plugins), but users
-should now install the plugin in their system (as above) and add to
-`pelicanconf.py` a configuration like the following:
-
-```python
-import pelican_linkclass
-PLUGINS = [pelican_linkclass,]
-```
-
-### User Settings
+Configuration
+-------------
 
 In order to avoid clashes with already-defined classes in the user CSS
 style sheets, it is possible to specify the name of the classes that will
-be used.  They can be specified in the Pelican setting files with the
+be used. They can be specified in the Pelican setting file with the
 `LINKCLASS` variable, which must be defined as a list of tuples, like this:
 
 ```python
@@ -51,18 +39,19 @@ be used.  They can be specified in the Pelican setting files with the
 The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are,
 respectively, `'external'` and `'internal'`.
 
-### Styling the hyperlinks
+Styling Hyperlinks
+------------------
 
-One of the possible uses of this plugins is for styling.  Suppose that we
-have the following in your article written with Markdown:
+One of the possible uses of this plugins is for styling. Suppose that we
+have the following Markdown content in your article:
 
 ```markdown
 This is an [internal](internal) link and this is an
 [external](http://external.com) link.
 ```
 
-If the default values of the configuration variables are used, then a
- possible CSS setting would be:
+If the default configuration variable values are used, then one possible
+CSS setting could be:
 
 ```css
 a.external:before {
@@ -71,8 +60,8 @@ a.external:before {
 }
 ```
 
-(The file `external-link.png` is also distributed with this plugin.  Just
-copy it to the appropriate place in your website source tree, for instance
+(The file `external-link.png` is also distributed with this plugin. To use it,
+copy it to the appropriate place in your web site source tree, for instance
 in `theme/static/images/`.)
 
 Then, the result will look like the following:
@@ -90,16 +79,27 @@ This is an [internal][internal] link and this is an
  [external]: http://external.com
 ```
 
-## Acknowledgments
+Contributing
+------------
+
+Contributions are welcome and much appreciated. Every little bit helps. You can contribute by improving the documentation, adding missing features, and fixing bugs. You can also help out by reviewing and commenting on [existing issues][].
+
+To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
+
+[existing issues]: https://github.com/pelican-plugins/linkclass/issues
+[Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
+
+Acknowledgments
+---------------
 
 Many thanks to [Yuliya Bagriy](https://github.com/aviskase) for setting up
-the package for [PyPI](https://pypi.org/) and [Lucas
+the package for [PyPI](https://pypi.org/) and to [Lucas
 Cimon](https://github.com/Lucas-C) for fixing the issues with
-[pytest](https://pytest.org/) and the smooth integration into the Pelican
-repository as a sub-module.
+[pytest](https://pytest.org/).
 
-## Author
+Author
+------
 
 Copyright (C) 2015, 2017, 2019  Rafael Laboissiere (<rafael@laboissiere.net>)
 
-Released under the GNU Affero Public License, version 3 or later.  No warranties.
+Released under the GNU Affero Public License, version 3 or later. No warranties.
