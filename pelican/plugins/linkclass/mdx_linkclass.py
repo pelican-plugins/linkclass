@@ -68,7 +68,7 @@ class LinkClassExtension(Extension):
 
 class LinkClass(LinkInlineProcessor):
     """Markdown inline pattern processor for adding class attribute to
-inline-style hyperlinks"""
+    inline-style hyperlinks"""
 
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor"""
@@ -88,7 +88,7 @@ inline-style hyperlinks"""
 
 class ReferenceClass(ReferenceInlineProcessor):
     """Markdown inline pattern processor for adding class attribute to
-inline-style references"""
+    inline-style references"""
 
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor"""

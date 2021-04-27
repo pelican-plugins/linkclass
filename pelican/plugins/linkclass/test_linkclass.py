@@ -30,7 +30,7 @@ from six import StringIO
 from pelican import Pelican
 from pelican.settings import read_settings
 
-import linkclass
+from . import linkclass
 
 INTERNAL_CLASS = "internal"
 EXTERNAL_CLASS = "external"
@@ -139,7 +139,7 @@ This is an [%s][%s], reference-style link (with https URL).
         rmtree(self.content_path)
 
     def search(self, string):
-        """"Search for a string in the article output"""
+        """Search for a string in the article output"""
         fid = open(os.path.join(self.output_path, "%s.html" % TEST_FILE_STEM), "r")
         found = False
         for line in fid.readlines():
