@@ -92,11 +92,12 @@ To start contributing to this plugin, review the [Contributing to Pelican][] doc
 Acknowledgments
 ---------------
 
-Many thanks to [Yuliya Bagriy][] for setting up the package for [PyPI][], to [Lucas Cimon][] for fixing the issues with [pytest](https://pytest.org/), and to [Justin Mayer][] for helping with migration of this plugin under the Pelican Plugins organization.
+Many thanks to [Yuliya Bagriy][] for setting up the package for [PyPI][], to [Lucas Cimon][] for fixing the issues with [pytest][], and to [Justin Mayer][] for helping with migration of this plugin under the Pelican Plugins organization.
 
 [Yuliya Bagriy]: https://github.com/aviskase
 [PyPI]: https://pypi.org/
 [Lucas Cimon]: https://github.com/Lucas-C
+[pytest]: https://pytest.org/
 [Justin Mayer]: https://github.com/justinmayer
 
 Author
