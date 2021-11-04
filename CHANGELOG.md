@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.0.1 - 2021-11-04
+------------------
+
+Maintenance release: Use .format() instead of % operator to format strings
+
 2.0.0 - 2021-02-17
 ------------------
 
