@@ -1,6 +1,6 @@
 """Unit testing suite for the Link Class Plugin"""
 
-# Copyright (C) 2015, 2017, 2019  Rafael Laboissière <rafael@laboissiere.net>
+# Copyright (C) 2015, 2017, 2019, 2021  Rafael Laboissière <rafael@laboissiere.net>
 #
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Affero Public License as published by
@@ -56,7 +56,7 @@ EXTERNAL_REFERENCE_TEXT_HTTPS = "external reference text https"
 EXTERNAL_REFERENCE_LABEL_HTTPS = "external reference label https"
 EXTERNAL_REFERENCE_LINK_HTTPS = "https://reference.org"
 
-LINK_PATTERN = '<a class="%s" href="%s">%s</a>'
+LINK_PATTERN = '<a class="{}" href="{}">{}</a>'
 
 TEST_FILE_STEM = "test"
 TEST_DIR_PREFIX = "pelicantests."
@@ -84,25 +84,27 @@ class TestLinkClass(unittest.TestCase):
             settings.update(override)
 
         # Generate the test Markdown source file
-        fid = open(os.path.join(self.content_path, "%s.md" % TEST_FILE_STEM), "w")
+        fid = open(
+            os.path.join(self.content_path, "{}.md".format(TEST_FILE_STEM)),
+            "w",
+        )
         fid.write(
             """Title: Test
 Date: 1970-01-01
 
-This is an [%s](%s), inline-style link.
-This is an [%s](%s), inline-style link (with http URL).
-This is an [%s](%s), inline-style link (with https URL).
+This is an [{}]({}), inline-style link.
+This is an [{}]({}), inline-style link (with http URL).
+This is an [{}]({}), inline-style link (with https URL).
 
-This is an [%s][%s], reference-style link.
-This is an [%s][%s], reference-style link (with http URL).
-This is an [%s][%s], reference-style link (with https URL).
+This is an [{}][{}], reference-style link.
+This is an [{}][{}], reference-style link (with http URL).
+This is an [{}][{}], reference-style link (with https URL).
 
- [%s]: %s
- [%s]: %s
- [%s]: %s
+ [{}]: {}
+ [{}]: {}
+ [{}]: {}
 
-"""
-            % (
+""".format(
                 INTERNAL_INLINE_TEXT,
                 INTERNAL_INLINE_LINK,
                 EXTERNAL_INLINE_TEXT_HTTP,
@@ -140,7 +142,10 @@ This is an [%s][%s], reference-style link (with https URL).
 
     def search(self, string):
         """Search for a string in the article output"""
-        fid = open(os.path.join(self.output_path, "%s.html" % TEST_FILE_STEM), "r")
+        fid = open(
+            os.path.join(self.output_path, "{}.html".format(TEST_FILE_STEM)),
+            "r",
+        )
         found = False
         for line in fid.readlines():
             if re.search(string, line):
@@ -152,35 +157,47 @@ This is an [%s][%s], reference-style link (with https URL).
     def test_internal_inline(self):
         """Test for the internal inline link"""
         assert self.search(
-            LINK_PATTERN % (INTERNAL_CLASS, INTERNAL_INLINE_LINK, INTERNAL_INLINE_TEXT)
+            LINK_PATTERN.format(
+                INTERNAL_CLASS,
+                INTERNAL_INLINE_LINK,
+                INTERNAL_INLINE_TEXT,
+            )
         )
 
     def test_external_inline_http(self):
         """Test for the external http inline link"""
         assert self.search(
-            LINK_PATTERN
-            % (EXTERNAL_CLASS, EXTERNAL_INLINE_LINK_HTTP, EXTERNAL_INLINE_TEXT_HTTP)
+            LINK_PATTERN.format(
+                EXTERNAL_CLASS,
+                EXTERNAL_INLINE_LINK_HTTP,
+                EXTERNAL_INLINE_TEXT_HTTP,
+            )
         )
 
     def test_external_inline_https(self):
         """Test for the external https inline link"""
         assert self.search(
-            LINK_PATTERN
-            % (EXTERNAL_CLASS, EXTERNAL_INLINE_LINK_HTTPS, EXTERNAL_INLINE_TEXT_HTTPS)
+            LINK_PATTERN.format(
+                EXTERNAL_CLASS,
+                EXTERNAL_INLINE_LINK_HTTPS,
+                EXTERNAL_INLINE_TEXT_HTTPS,
+            )
         )
 
     def test_internal_reference(self):
         """Test for the internal reference link"""
         assert self.search(
-            LINK_PATTERN
-            % (INTERNAL_CLASS, INTERNAL_REFERENCE_LINK, INTERNAL_REFERENCE_TEXT)
+            LINK_PATTERN.format(
+                INTERNAL_CLASS,
+                INTERNAL_REFERENCE_LINK,
+                INTERNAL_REFERENCE_TEXT,
+            )
         )
 
     def test_external_reference_http(self):
         """Test for the external http reference link"""
         assert self.search(
-            LINK_PATTERN
-            % (
+            LINK_PATTERN.format(
                 EXTERNAL_CLASS,
                 EXTERNAL_REFERENCE_LINK_HTTP,
                 EXTERNAL_REFERENCE_TEXT_HTTPS,
@@ -190,8 +207,7 @@ This is an [%s][%s], reference-style link (with https URL).
     def test_external_reference_https(self):
         """Test for the external https reference link"""
         assert self.search(
-            LINK_PATTERN
-            % (
+            LINK_PATTERN.format(
                 EXTERNAL_CLASS,
                 EXTERNAL_REFERENCE_LINK_HTTPS,
                 EXTERNAL_REFERENCE_TEXT_HTTPS,
