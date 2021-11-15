@@ -28,6 +28,6 @@ repos:
         args: [--max-line-length=88]
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.10.0
+    rev: 5.10.1
     hooks:
       - id: isort
