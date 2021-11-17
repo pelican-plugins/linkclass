@@ -85,7 +85,7 @@ class TestLinkClass(unittest.TestCase):
 
         # Generate the test Markdown source file
         fid = open(
-            os.path.join(self.content_path, "{}.md".format(TEST_FILE_STEM)),
+            os.path.join(self.content_path, f"{TEST_FILE_STEM}.md"),
             "w",
         )
         fid.write(
@@ -143,8 +143,7 @@ This is an [{}][{}], reference-style link (with https URL).
     def search(self, string):
         """Search for a string in the article output"""
         fid = open(
-            os.path.join(self.output_path, "{}.html".format(TEST_FILE_STEM)),
-            "r",
+            os.path.join(self.output_path, f"{TEST_FILE_STEM}.html"),
         )
         found = False
         for line in fid.readlines():

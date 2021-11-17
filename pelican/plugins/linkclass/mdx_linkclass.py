@@ -49,7 +49,7 @@ class LinkClassExtension(Extension):
     def __init__(self, config):
         for key, value in LC_CONFIG.items():
             self.config[key] = [value, LC_HELP[key]]
-        super(LinkClassExtension, self).__init__(**config)
+        super().__init__(**config)
 
     def extendMarkdown(self, md):
         """Register the Markdown extension"""
@@ -73,7 +73,7 @@ class LinkClass(LinkInlineProcessor):
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor"""
 
-        super(LinkClass, self).__init__(pattern)
+        super().__init__(pattern)
         # Store the configuration dict
         self.config = config
 
@@ -81,7 +81,7 @@ class LinkClass(LinkInlineProcessor):
         """Add the class attribute to the generated <a> element"""
 
         # Build the <a> element using the parent class
-        elm, start, end = super(LinkClass, self).handleMatch(m, data)
+        elm, start, end = super().handleMatch(m, data)
         # Return the <a> element with added class
         return add_class(elm, self.config), start, end
 
@@ -93,7 +93,7 @@ class ReferenceClass(ReferenceInlineProcessor):
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor"""
 
-        super(ReferenceClass, self).__init__(pattern)
+        super().__init__(pattern)
         # Store the configuration dict
         self.config = config
 
@@ -101,7 +101,7 @@ class ReferenceClass(ReferenceInlineProcessor):
         """Add the class attribute to the generated <a> element"""
 
         # Build the <a> element using the parent class
-        elm, start, end = super(ReferenceClass, self).handleMatch(m, data)
+        elm, start, end = super().handleMatch(m, data)
         # Return the <a> element with added class
         return add_class(elm, self.config), start, end
 
