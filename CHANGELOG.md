@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.0.2 - 2021-12-17
+------------------
+
+Upgrade code to Python 3.6+ (thanks to Justin Mayer)
+
 2.0.1 - 2021-11-04
 ------------------
 
