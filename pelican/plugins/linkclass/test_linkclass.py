@@ -25,7 +25,7 @@ import sys
 from tempfile import mkdtemp
 import unittest
 
-from six import StringIO
+from io import StringIO
 
 from pelican import Pelican
 from pelican.settings import read_settings
