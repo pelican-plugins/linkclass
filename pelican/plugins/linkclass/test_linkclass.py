@@ -18,14 +18,13 @@
 # For running this test in a standalone-way, run:
 #     (cd .. ; python3 -Wd -m unittest discover)
 
+from io import StringIO
 import os
 import re
 from shutil import rmtree
 import sys
 from tempfile import mkdtemp
 import unittest
-
-from io import StringIO
 
 from pelican import Pelican
 from pelican.settings import read_settings
