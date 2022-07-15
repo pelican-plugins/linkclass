@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.0.3 - 2022-07-15
+------------------
+
+In `test_linkclass.py`, use `io` instead of `six` to import `StringIO`.
+
 2.0.2 - 2021-12-17
 ------------------
 
