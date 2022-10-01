@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pelican-linkclass"
-version = "2.0.3"
+version = "2.0.4"
 description = "Pelican plugin to set anchor tag's class attribute to differentiate between internal and external links"
 authors = ["Rafael Laboissière <rafael@laboissiere.net>"]
 license = "AGPL-3.0"
