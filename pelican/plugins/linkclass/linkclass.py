@@ -22,7 +22,6 @@ from .mdx_linkclass import LC_CONFIG, LC_HELP, LinkClassExtension
 
 
 def addLinkClass(gen):
-
     if not gen.settings.get("MARKDOWN"):
         from pelican.settings import DEFAULT_CONFIG
 
@@ -43,7 +42,7 @@ def addLinkClass(gen):
         lcobj = LinkClassExtension(config)
         try:
             gen.settings["MARKDOWN"]["extensions"].append(lcobj)
-        except (KeyError):
+        except KeyError:
             gen.settings["MARKDOWN"]["extensions"] = [lcobj]
 
 
