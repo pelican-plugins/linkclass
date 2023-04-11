@@ -1,7 +1,7 @@
 Link Class: A Plugin for Pelican
 ================================
 
-[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/linkclass/build)](https://github.com/pelican-plugins/linkclass/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/linkclass/main.yml?branch=main)](https://github.com/pelican-plugins/linkclass/actions)
 [![PyPI Version](https://img.shields.io/pypi/v/pelican-linkclass)](https://pypi.org/project/pelican-linkclass/)
 ![License](https://img.shields.io/pypi/l/pelican-linkclass?color=blue)
 
