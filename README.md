@@ -32,8 +32,8 @@ be used. They can be specified in the Pelican setting file with the
 `LINKCLASS` variable, which must be defined as a list of tuples, like this:
 
 ```python
-'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links')
-                'INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
+'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
+               ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
 ```
 
 The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are,
