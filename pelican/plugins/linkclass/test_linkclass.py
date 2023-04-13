@@ -75,8 +75,8 @@ class TestLinkClass(unittest.TestCase):
             "SITEURL": "http://example.org",
             "TIMEZONE": "UTC",
             "LINKCLASS": (
-                ("INTERNAL_CLASS", INTERNAL_CLASS, ""),
-                ("EXTERNAL_CLASS", EXTERNAL_CLASS, ""),
+                ("INTERNAL_CLASS", INTERNAL_CLASS),
+                ("EXTERNAL_CLASS", EXTERNAL_CLASS),
             ),
         }
         if override:

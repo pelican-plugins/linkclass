@@ -18,7 +18,7 @@
 
 from pelican import signals
 
-from .mdx_linkclass import LC_CONFIG, LC_HELP, LinkClassExtension
+from .mdx_linkclass import LC_CONFIG, LinkClassExtension
 
 
 def addLinkClass(gen):
@@ -28,9 +28,8 @@ def addLinkClass(gen):
         gen.settings["MARKDOWN"] = DEFAULT_CONFIG["MARKDOWN"]
 
     if gen.settings.get("LINKCLASS"):
-        for param, default, helptext in gen.settings.get("LINKCLASS"):
+        for param, default in gen.settings.get("LINKCLASS"):
             LC_CONFIG[param] = default
-            LC_HELP[param] = helptext
 
     if LinkClassExtension not in gen.settings["MARKDOWN"]:
         config = dict()
