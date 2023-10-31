@@ -67,7 +67,7 @@ class LinkClassExtension(Extension):
 
 
 class LinkClass(LinkInlineProcessor):
-    """Markdown inline pattern processor for adding class attribute to inline-style hyperlinks."""
+    """Markdown inline pattern processor for adding class attribute to inline-style hyperlinks.""" # NOQA: E501
 
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor."""
@@ -84,7 +84,7 @@ class LinkClass(LinkInlineProcessor):
 
 
 class ReferenceClass(ReferenceInlineProcessor):
-    """Markdown inline pattern processor for adding class attribute to inline-style references."""
+    """Markdown inline pattern processor for adding class attribute to inline-style references.""" # NOQA: E501
 
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor."""
