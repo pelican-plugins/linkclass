@@ -1,1 +1,1 @@
-from .linkclass import *  # NOQA
+from .linkclass import *  # NOQA: F403
