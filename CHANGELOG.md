@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+2.1.1 - 2023-10-31
+------------------
+
+Maintenance release:
+
+- Migrate to the new tooling standards
+- Improve code quality
+
 2.1.0 - 2023-04-13
 ------------------
 
