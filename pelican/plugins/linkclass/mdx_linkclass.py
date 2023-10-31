@@ -33,8 +33,8 @@ LC_HELP = {
 }
 
 
-# Utlity function for adding the appropriate class attribute
 def add_class(elm, config):
+    """Utlity function for adding the appropriate class attribute."""
     try:
         m = re.match("^https?://", elm.get("href"))
         elm.set("class", m and config["EXTERNAL_CLASS"] or config["INTERNAL_CLASS"])
@@ -47,6 +47,7 @@ class LinkClassExtension(Extension):
     """Markdown extension for the Link Class plugin."""
 
     def __init__(self, config):
+        """Initialize the class object."""
         for key, value in LC_CONFIG.items():
             self.config[key] = [value, LC_HELP[key]]
         super().__init__(**config)

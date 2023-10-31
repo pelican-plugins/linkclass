@@ -22,6 +22,7 @@ from .mdx_linkclass import LC_CONFIG, LinkClassExtension
 
 
 def addLinkClass(gen):
+    """Add LinkClass connector."""
     if not gen.settings.get("MARKDOWN"):
         from pelican.settings import DEFAULT_CONFIG
 
