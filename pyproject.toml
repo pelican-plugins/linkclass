@@ -50,7 +50,7 @@ test = [
 ]
 
 [tool.autopub]
-project-name = "Avatar"
+project-name = "Link Class"
 git-username = "botpub"
 git-email = "52496925+botpub@users.noreply.github.com"
 append-github-contributor = true
