@@ -105,5 +105,5 @@ class ReferenceClass(ReferenceInlineProcessor):
 
 
 def makeExtension(config=None):
-    """Wrapper for a MarkDown extension."""
+    """Register the MarkDown extension."""
     return LinkClassExtension(config=config)
