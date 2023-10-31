@@ -33,7 +33,7 @@ def addLinkClass(gen):
             LC_CONFIG[param] = default
 
     if LinkClassExtension not in gen.settings["MARKDOWN"]:
-        config = dict()
+        config = {}
         for key, value in LC_CONFIG.items():
             config[key] = value
         for key, value in gen.settings.items():
