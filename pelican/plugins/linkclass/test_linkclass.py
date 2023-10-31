@@ -83,12 +83,12 @@ class TestLinkClass(unittest.TestCase):
             settings.update(override)
 
         # Generate the test Markdown source file
-        fid = open(
+        with open(
             os.path.join(self.content_path, f"{TEST_FILE_STEM}.md"),
             "w",
-        )
-        fid.write(
-            """Title: Test
+        ) as fid:
+            fid.write(
+                """Title: Test
 Date: 1970-01-01
 
 This is an [{}]({}), inline-style link.
@@ -104,27 +104,26 @@ This is an [{}][{}], reference-style link (with https URL).
  [{}]: {}
 
 """.format(
-                INTERNAL_INLINE_TEXT,
-                INTERNAL_INLINE_LINK,
-                EXTERNAL_INLINE_TEXT_HTTP,
-                EXTERNAL_INLINE_LINK_HTTP,
-                EXTERNAL_INLINE_TEXT_HTTPS,
-                EXTERNAL_INLINE_LINK_HTTP,
-                INTERNAL_REFERENCE_TEXT,
-                INTERNAL_REFERENCE_LABEL,
-                EXTERNAL_REFERENCE_TEXT_HTTP,
-                EXTERNAL_REFERENCE_LABEL_HTTP,
-                EXTERNAL_REFERENCE_TEXT_HTTPS,
-                EXTERNAL_REFERENCE_LABEL_HTTPS,
-                INTERNAL_REFERENCE_LABEL,
-                INTERNAL_REFERENCE_LINK,
-                EXTERNAL_REFERENCE_LABEL_HTTP,
-                EXTERNAL_REFERENCE_LINK_HTTP,
-                EXTERNAL_REFERENCE_LABEL_HTTPS,
-                EXTERNAL_REFERENCE_LINK_HTTPS,
+                    INTERNAL_INLINE_TEXT,
+                    INTERNAL_INLINE_LINK,
+                    EXTERNAL_INLINE_TEXT_HTTP,
+                    EXTERNAL_INLINE_LINK_HTTP,
+                    EXTERNAL_INLINE_TEXT_HTTPS,
+                    EXTERNAL_INLINE_LINK_HTTP,
+                    INTERNAL_REFERENCE_TEXT,
+                    INTERNAL_REFERENCE_LABEL,
+                    EXTERNAL_REFERENCE_TEXT_HTTP,
+                    EXTERNAL_REFERENCE_LABEL_HTTP,
+                    EXTERNAL_REFERENCE_TEXT_HTTPS,
+                    EXTERNAL_REFERENCE_LABEL_HTTPS,
+                    INTERNAL_REFERENCE_LABEL,
+                    INTERNAL_REFERENCE_LINK,
+                    EXTERNAL_REFERENCE_LABEL_HTTP,
+                    EXTERNAL_REFERENCE_LINK_HTTP,
+                    EXTERNAL_REFERENCE_LABEL_HTTPS,
+                    EXTERNAL_REFERENCE_LINK_HTTPS,
+                )
             )
-        )
-        fid.close()
 
         # Run the Pelican instance
         self.settings = read_settings(override=settings)
@@ -141,15 +140,14 @@ This is an [{}][{}], reference-style link (with https URL).
 
     def search(self, string):
         """Search for a string in the article output."""
-        fid = open(
-            os.path.join(self.output_path, f"{TEST_FILE_STEM}.html"),
-        )
-        found = False
-        for line in fid.readlines():
-            if re.search(string, line):
-                found = True
-                break
-        fid.close()
+        with open(
+                os.path.join(self.output_path, f"{TEST_FILE_STEM}.html"),
+        ) as fid:
+            found = False
+            for line in fid.readlines():
+                if re.search(string, line):
+                    found = True
+                    break
         return found
 
     def test_internal_inline(self):
