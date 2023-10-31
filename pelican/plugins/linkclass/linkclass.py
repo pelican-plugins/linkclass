@@ -1,4 +1,4 @@
-"""Link Class Plugin for Pelican"""
+"""Link Class Plugin for Pelican."""
 
 # Copyright (C) 2015, 2019, 2023  Rafael Laboissière
 #
@@ -46,5 +46,5 @@ def addLinkClass(gen):
 
 
 def register():
-    """Register the Link Class plugin with Pelican"""
+    """Register the Link Class plugin with Pelican."""
     signals.initialized.connect(addLinkClass)

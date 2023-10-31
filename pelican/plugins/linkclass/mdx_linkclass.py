@@ -1,4 +1,4 @@
-"""Markdown extension for the Link Class plugin for Pelican"""
+"""Markdown extension for the Link Class plugin for Pelican."""
 
 # Copyright (C) 2015, 2017, 2019  Rafael Laboissière
 #
@@ -44,7 +44,7 @@ def add_class(elm, config):
 
 
 class LinkClassExtension(Extension):
-    """Markdown extension for the Link Class plugin"""
+    """Markdown extension for the Link Class plugin."""
 
     def __init__(self, config):
         for key, value in LC_CONFIG.items():
@@ -52,8 +52,7 @@ class LinkClassExtension(Extension):
         super().__init__(**config)
 
     def extendMarkdown(self, md):
-        """Register the Markdown extension"""
-
+        """Register the Markdown extension."""
         # LinkClass instances is added to the list of inline pattern
         # processors, with higher priority than the processor defined for the
         # "link" and the "reference" objects, such that the normal behavior is
@@ -68,18 +67,17 @@ class LinkClassExtension(Extension):
 
 class LinkClass(LinkInlineProcessor):
     """Markdown inline pattern processor for adding class attribute to
-    inline-style hyperlinks"""
+    inline-style hyperlinks.
+    """
 
     def __init__(self, pattern, config):
-        """Initialize the Markdwon inline pattern processor"""
-
+        """Initialize the Markdwon inline pattern processor."""
         super().__init__(pattern)
         # Store the configuration dict
         self.config = config
 
     def handleMatch(self, m, data):
-        """Add the class attribute to the generated <a> element"""
-
+        """Add the class attribute to the generated <a> element."""
         # Build the <a> element using the parent class
         elm, start, end = super().handleMatch(m, data)
         # Return the <a> element with added class
@@ -88,18 +86,17 @@ class LinkClass(LinkInlineProcessor):
 
 class ReferenceClass(ReferenceInlineProcessor):
     """Markdown inline pattern processor for adding class attribute to
-    inline-style references"""
+    inline-style references.
+    """
 
     def __init__(self, pattern, config):
-        """Initialize the Markdwon inline pattern processor"""
-
+        """Initialize the Markdwon inline pattern processor."""
         super().__init__(pattern)
         # Store the configuration dict
         self.config = config
 
     def handleMatch(self, m, data):
-        """Add the class attribute to the generated <a> element"""
-
+        """Add the class attribute to the generated <a> element."""
         # Build the <a> element using the parent class
         elm, start, end = super().handleMatch(m, data)
         # Return the <a> element with added class
@@ -107,5 +104,5 @@ class ReferenceClass(ReferenceInlineProcessor):
 
 
 def makeExtension(config=None):
-    """Wrapper for a MarkDown extension"""
+    """Wrapper for a MarkDown extension."""
     return LinkClassExtension(config=config)
