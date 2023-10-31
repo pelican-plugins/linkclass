@@ -3,4 +3,4 @@ __pycache__/
 /dist/
 /*.egg-info
 /build/
-poetry.lock
+pdm.lock
