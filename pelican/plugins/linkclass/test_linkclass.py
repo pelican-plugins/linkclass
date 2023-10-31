@@ -141,7 +141,7 @@ This is an [{}][{}], reference-style link (with https URL).
     def search(self, string):
         """Search for a string in the article output."""
         with open(
-                os.path.join(self.output_path, f"{TEST_FILE_STEM}.html"),
+            os.path.join(self.output_path, f"{TEST_FILE_STEM}.html"),
         ) as fid:
             found = False
             for line in fid.readlines():
