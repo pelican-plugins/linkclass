@@ -88,43 +88,22 @@ class TestLinkClass(unittest.TestCase):
             "w",
         ) as fid:
             fid.write(
-                """Title: Test
+                f"""Title: Test
 Date: 1970-01-01
 
-This is an [{}]({}), inline-style link.
-This is an [{}]({}), inline-style link (with http URL).
-This is an [{}]({}), inline-style link (with https URL).
+This is an [{INTERNAL_INLINE_TEXT}]({INTERNAL_INLINE_LINK}), inline-style link.
+This is an [{EXTERNAL_INLINE_TEXT_HTTP}]({EXTERNAL_INLINE_LINK_HTTP}), inline-style link (with http URL).
+This is an [{EXTERNAL_INLINE_TEXT_HTTPS}]({EXTERNAL_INLINE_LINK_HTTP}), inline-style link (with https URL).
 
-This is an [{}][{}], reference-style link.
-This is an [{}][{}], reference-style link (with http URL).
-This is an [{}][{}], reference-style link (with https URL).
+This is an [{INTERNAL_REFERENCE_TEXT}][{INTERNAL_REFERENCE_LABEL}], reference-style link.
+This is an [{EXTERNAL_REFERENCE_TEXT_HTTP}][{EXTERNAL_REFERENCE_LABEL_HTTP}], reference-style link (with http URL).
+This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}], reference-style link (with https URL).
 
- [{}]: {}
- [{}]: {}
- [{}]: {}
+ [{INTERNAL_REFERENCE_LABEL}]: {INTERNAL_REFERENCE_LINK}
+ [{EXTERNAL_REFERENCE_LABEL_HTTP}]: {EXTERNAL_REFERENCE_LINK_HTTP}
+ [{EXTERNAL_REFERENCE_LABEL_HTTPS}]: {EXTERNAL_REFERENCE_LINK_HTTPS}
 
-""".format(
-                    INTERNAL_INLINE_TEXT,
-                    INTERNAL_INLINE_LINK,
-                    EXTERNAL_INLINE_TEXT_HTTP,
-                    EXTERNAL_INLINE_LINK_HTTP,
-                    EXTERNAL_INLINE_TEXT_HTTPS,
-                    EXTERNAL_INLINE_LINK_HTTP,
-                    INTERNAL_REFERENCE_TEXT,
-                    INTERNAL_REFERENCE_LABEL,
-                    EXTERNAL_REFERENCE_TEXT_HTTP,
-                    EXTERNAL_REFERENCE_LABEL_HTTP,
-                    EXTERNAL_REFERENCE_TEXT_HTTPS,
-                    EXTERNAL_REFERENCE_LABEL_HTTPS,
-                    INTERNAL_REFERENCE_LABEL,
-                    INTERNAL_REFERENCE_LINK,
-                    EXTERNAL_REFERENCE_LABEL_HTTP,
-                    EXTERNAL_REFERENCE_LINK_HTTP,
-                    EXTERNAL_REFERENCE_LABEL_HTTPS,
-                    EXTERNAL_REFERENCE_LINK_HTTPS,
-                )
-            )
-
+"""
         # Run the Pelican instance
         self.settings = read_settings(override=settings)
         pelican = Pelican(settings=self.settings)
