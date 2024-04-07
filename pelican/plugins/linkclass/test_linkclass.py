@@ -103,7 +103,7 @@ This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}], 
  [{EXTERNAL_REFERENCE_LABEL_HTTP}]: {EXTERNAL_REFERENCE_LINK_HTTP}
  [{EXTERNAL_REFERENCE_LABEL_HTTPS}]: {EXTERNAL_REFERENCE_LINK_HTTPS}
 
-"""
+""")
         # Run the Pelican instance
         self.settings = read_settings(override=settings)
         pelican = Pelican(settings=self.settings)
