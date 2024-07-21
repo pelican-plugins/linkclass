@@ -3,7 +3,7 @@ Link Class: A Plugin for Pelican
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/linkclass/main.yml?branch=main)](https://github.com/pelican-plugins/linkclass/actions)
 [![PyPI Version](https://img.shields.io/pypi/v/pelican-linkclass)](https://pypi.org/project/pelican-linkclass/)
-![License](https://img.shields.io/pypi/l/pelican-linkclass?color=blue)
+[![License](https://img.shields.io/pypi/l/pelican-linkclass?color=blue)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
 This Pelican plugin allows you to set the class attribute of `<a>` elements
 (generated in Markdown by `[ext](link)`) according to whether the link is
