@@ -15,7 +15,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see http://www.gnu.org/licenses/.
 
-
 from pelican import signals
 
 from .mdx_linkclass import LC_CONFIG, LinkClassExtension
