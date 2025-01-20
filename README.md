@@ -13,6 +13,7 @@ Pelican-generated site.
 For now, this plugin only works with Markdown. It has been tested with version
 3.0+ of the Python-Markdown module and may not work with previous versions.
 
+
 Installation
 ------------
 
@@ -22,6 +23,7 @@ at PyPI and can be installed via:
 ```
 python -m pip install pelican-linkclass
 ```
+
 
 Configuration
 -------------
@@ -38,6 +40,7 @@ be used. They can be specified in the Pelican setting file with the
 
 The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are,
 respectively, `'external'` and `'internal'`.
+
 
 Styling Hyperlinks
 ------------------
@@ -79,6 +82,7 @@ This is an [internal][internal] link and this is an
  [external]: http://external.com
 ```
 
+
 Contributing
 ------------
 
@@ -88,6 +92,7 @@ To start contributing to this plugin, review the [Contributing to Pelican][] doc
 
 [existing issues]: https://github.com/pelican-plugins/linkclass/issues
 [Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
+
 
 Acknowledgments
 ---------------
@@ -100,10 +105,12 @@ Many thanks to [Yuliya Bagriy][] for setting up the package for [PyPI][], to [Lu
 [pytest]: https://pytest.org/
 [Justin Mayer]: https://github.com/justinmayer
 
+
 Author
 ------
 
 Copyright © 2015, 2017, 2019, 2021-2023 Rafael Laboissière (<rafael@laboissiere.net>)
+
 
 License
 -------
