@@ -36,10 +36,7 @@ def add_class(elm, config):
     """Utlity function for adding the appropriate class attribute."""
     try:
         m = re.match("^https?://", elm.get("href"))
-        elm.set(
-            "class",
-            (m and config["EXTERNAL_CLASS"]) or config["INTERNAL_CLASS"]
-        )
+        elm.set("class", (m and config["EXTERNAL_CLASS"]) or config["INTERNAL_CLASS"])
     except AttributeError:
         pass
     return elm
