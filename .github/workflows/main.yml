@@ -47,7 +47,7 @@ jobs:
         uses: JustinBeckwith/linkinator-action@v1
         with:
           retry: true
-          linksToSkip: "https://pypi.org/project/pelican-linkclass/"
+          linksToSkip: "https://pypi.org/project/pelican-graphviz/, https://www.gnu.org/licenses/agpl-3g.0.en.html"
 
       - name: Set up Python & PDM
         uses: pdm-project/setup-pdm@v4
