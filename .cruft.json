@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+  "commit": "8a4f543e999c7a2b4ab49c724bf84ff4192f4c94",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "plugin_name": "Link Class",
+      "repo_name": "linkclass",
+      "package_name": "linkclass",
+      "distribution_name": "pelican-linkclass",
+      "version": "2.1.4",
+      "description": "Pelican plugin to set anchor tag's class attribute to differentiate between internal and external links",
+      "authors": "name = \"Rafael Laboissière\", email = \"rafael@laboissiere.net\"",
+      "keywords": "\"pelican\", \"plugin\", \"link class\"",
+      "readme": "README.md",
+      "contributing": "CONTRIBUTING.md",
+      "license": "GNU Affero General Public License v3|AGPL-3.0",
+      "repo_url": "https://github.com/pelican-plugins/linkclass",
+      "dev_status": "5 - Production/Stable",
+      "tests_exist": true,
+      "python_version": "~=3.9",
+      "pelican_version": ">=4.5",
+      "_template": "https://github.com/getpelican/cookiecutter-pelican-plugin"
+    }
+  },
+  "directory": null
+}

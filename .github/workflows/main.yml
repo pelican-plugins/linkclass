@@ -5,19 +5,24 @@ on: [push, pull_request]
 env:
   PYTEST_ADDOPTS: "--color=yes"
 
+permissions:
+  contents: read
+
 jobs:
   test:
-    name: Test - ${{ matrix.python-version }}
+    name: Test - Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Python ${{ matrix.python-version }} & PDM
-        uses: pdm-project/setup-pdm@v3
+        uses: pdm-project/setup-pdm@v4
         with:
           python-version: ${{ matrix.python-version }}
           cache: true
@@ -34,7 +39,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Validate links in Markdown files
         uses: JustinBeckwith/linkinator-action@v1
@@ -43,11 +50,9 @@ jobs:
           linksToSkip: "https://pypi.org/project/pelican-linkclass/"
 
       - name: Set up Python & PDM
-        uses: pdm-project/setup-pdm@v3
+        uses: pdm-project/setup-pdm@v4
         with:
           python-version: "3.10"
-          cache: true
-          cache-dependency-path: ./pyproject.toml
 
       - name: Install dependencies
         run: pdm install
@@ -67,12 +72,10 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_TOKEN }}
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -85,7 +88,7 @@ jobs:
       - name: Publish
         if: ${{ steps.check_release.outputs.autopub_release=='true' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           autopub prepare
           autopub commit
