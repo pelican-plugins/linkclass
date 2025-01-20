@@ -5,20 +5,15 @@ Link Class: A Plugin for Pelican
 [![PyPI Version](https://img.shields.io/pypi/v/pelican-linkclass)](https://pypi.org/project/pelican-linkclass/)
 [![License](https://img.shields.io/pypi/l/pelican-linkclass?color=blue)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
-This Pelican plugin allows you to set the class attribute of `<a>` elements
-(generated in Markdown by `[ext](link)`) according to whether the link is
-external (i.e., starts with `http://` or `https://`) or internal to the
-Pelican-generated site.
+This Pelican plugin allows you to set the class attribute of `<a>` elements (generated in Markdown by `[ext](link)`) according to whether the link is external (i.e., starts with `http://` or `https://`) or internal to the Pelican-generated site.
 
-For now, this plugin only works with Markdown. It has been tested with version
-3.0+ of the Python-Markdown module and may not work with previous versions.
+For now, this plugin only works with Markdown. It has been tested with version 3.0+ of the Python-Markdown module and may not work with previous versions.
 
 
 Installation
 ------------
 
-This plugin [is available as a package](https://pypi.org/project/pelican-linkclass/)
-at PyPI and can be installed via:
+This plugin [is available as a package](https://pypi.org/project/pelican-linkclass/) at PyPI and can be installed via:
 
 ```
 python -m pip install pelican-linkclass
@@ -28,33 +23,27 @@ python -m pip install pelican-linkclass
 Configuration
 -------------
 
-In order to avoid clashes with already-defined classes in the user CSS
-style sheets, it is possible to specify the name of the classes that will
-be used. They can be specified in the Pelican setting file with the
-`LINKCLASS` variable, which must be defined as a list of tuples, like this:
+In order to avoid clashes with already-defined classes in the user CSS style sheets, it is possible to specify the name of the classes that will be used. They can be specified in the Pelican setting file with the `LINKCLASS` variable, which must be defined as a list of tuples, like this:
 
 ```python
 'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
                ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
 ```
 
-The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are,
-respectively, `'external'` and `'internal'`.
+The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are, respectively, `'external'` and `'internal'`.
 
 
 Styling Hyperlinks
 ------------------
 
-One of the possible uses of this plugins is for styling. Suppose that we
-have the following Markdown content in your article:
+One of the possible uses of this plugins is for styling. Suppose that we have the following Markdown content in your article:
 
 ```markdown
 This is an [internal](internal) link and this is an
 [external](http://external.com) link.
 ```
 
-If the default configuration variable values are used, then one possible
-CSS setting could be:
+If the default configuration variable values are used, then one possible CSS setting could be:
 
 ```css
 a.external:before {
@@ -63,16 +52,13 @@ a.external:before {
 }
 ```
 
-(The file `external-link.png` is also distributed with this plugin. To use it,
-copy it to the appropriate place in your web site source tree, for instance
-in `theme/static/images/`.)
+(The file `external-link.png` is also distributed with this plugin. To use it, copy it to the appropriate place in your web site source tree, for instance in `theme/static/images/`.)
 
 Then, the result will look like the following:
 
 ![figure](https://github.com/pelican-plugins/linkclass/raw/main/linkclass-example.png)
 
-Note that this plugin also works with reference-style links, as in the
-following example:
+Note that this plugin also works with reference-style links, as in the following example:
 
 ```markdown
 This is an [internal][internal] link and this is an
