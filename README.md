@@ -97,7 +97,7 @@ Many thanks to [Yuliya Bagriy][] for setting up the package for [PyPI][], to [Lu
 Author
 ------
 
-Copyright © 2015, 2017, 2019, 2021-2023 Rafael Laboissière (<rafael@laboissiere.net>)
+Copyright © 2015, 2017, 2019, 2021-2023, 2025 Rafael Laboissière (<rafael@laboissiere.net>)
 
 
 License
