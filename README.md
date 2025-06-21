@@ -37,10 +37,10 @@ LINKCLASS = [
 ]
 ```
 
-If opening external links in a new tab is not desired, set `'TARGETBLANK'` to `False`.
+If opening external links in a new tab is desired, set `'TARGETBLANK'` to `True`.
 
-The default values for `'EXTERNAL_CLASS'` and `'INTERNAL_CLASS'` are, respectively, `'external'` and `'internal'`.
-`'TOOLTIP'` is empty by default.
+The default values for `'EXTERNAL_CLASS'` and `'INTERNAL_CLASS'` are, respectively, `'external'` and `'internal'`.  
+'TARGETBLANK'` is `False`, and `'TOOLTIP'` is empty by default.
 
 Styling Hyperlinks
 ------------------
