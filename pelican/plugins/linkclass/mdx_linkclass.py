@@ -25,19 +25,26 @@ from markdown.inlinepatterns import (
     ReferenceInlineProcessor,
 )
 
-LC_CONFIG = {"INTERNAL_CLASS": "internal", "EXTERNAL_CLASS": "external"}
+LC_CONFIG = {"INTERNAL_CLASS": "internal", "EXTERNAL_CLASS": "external", "TARGETBLANK": False, "TOOLTIP": ""}
 LC_HELP = {
     "INTERNAL_CLASS": "Name of the CSS class for internal links",
     "EXTERNAL_CLASS": "Name of the CSS class for external links",
+    "TARGETBLANK": "Open external links in a new tab/window if True",
+    "TOOLTIP": "Set to a string, this will be the title to show when hovering over a link. Use {0} to add the link itself.",
 }
 
 
 def add_class(elm, config):
     """Utlity function for adding the appropriate class attribute."""
     try:
-        m = re.match("^https?://", elm.get("href"))
+        l = elm.get("href")
+        m = re.match("^https?://", l)
         elm.set("class", (m and config["EXTERNAL_CLASS"]) or config["INTERNAL_CLASS"])
-    except AttributeError:
+        if config["TARGETBLANK"] == True and m:
+            elm.set("target", "_blank")
+        if config["TOOLTIP"] != "" and m:
+            str = config["TOOLTIP"].format(l)
+            elm.set("title", str)    except AttributeError:
         pass
     return elm
 
