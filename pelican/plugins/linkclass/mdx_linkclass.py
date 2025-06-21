@@ -44,7 +44,8 @@ def add_class(elm, config):
             elm.set("target", "_blank")
         if config["TOOLTIP"] != "" and m:
             str = config["TOOLTIP"].format(l)
-            elm.set("title", str)    except AttributeError:
+            elm.set("title", str)    
+    except AttributeError:
         pass
     return elm
 
