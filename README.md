@@ -29,12 +29,18 @@ Configuration
 In order to avoid clashes with already-defined classes in the user CSS style sheets, it is possible to specify the name of the classes that will be used. They can be specified in the Pelican setting file with the `LINKCLASS` variable, which must be defined as a list of tuples, like this:
 
 ```python
-'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
-               ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
+LINKCLASS = [
+    ('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
+    ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'),
+    ('TARGETBLANK', True/False)
+    ('TOOLTIP',"Set to a string, this will be the title to show when hovering over a link. Use {0} to add the link itself."),
++]
 ```
 
-The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are, respectively, `'external'` and `'internal'`.
+If opening external links in a new tab is not desired, set `'TARGETBLANK'` to `False`.
 
+The default values for `'EXTERNAL_CLASS'` and `'INTERNAL_CLASS'` are, respectively, `'external'` and `'internal'`.
+`'TOOLTIP'` is empty by default.
 
 Styling Hyperlinks
 ------------------
