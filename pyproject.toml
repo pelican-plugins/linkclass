@@ -1,6 +1,6 @@
 [project]
 name = "pelican-linkclass"
-version = "2.1.5"
+version = "2.1.7"
 description = "Pelican plugin to set anchor tag's class attribute to differentiate between internal and external links"
 authors = [{name = "Rafael Laboissière", email = "rafael@laboissiere.net"}]
 license = {text = "AGPL-3.0"}
