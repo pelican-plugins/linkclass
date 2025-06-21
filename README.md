@@ -34,7 +34,7 @@ LINKCLASS = [
     ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'),
     ('TARGETBLANK', True/False)
     ('TOOLTIP',"Set to a string, this will be the title to show when hovering over a link. Use {0} to add the link itself."),
-+]
+]
 ```
 
 If opening external links in a new tab is not desired, set `'TARGETBLANK'` to `False`.
