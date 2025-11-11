@@ -6,9 +6,9 @@ Link Class: A Plugin for Pelican
 [![Downloads](https://img.shields.io/pypi/dm/pelican-linkclass)](https://pypi.org/project/pelican-linkclass/)
 [![License](https://img.shields.io/pypi/l/pelican-linkclass?color=blue)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
-This Pelican plugin allows you to set the class attribute of `<a>` elements (generated in Markdown by `[ext](link)`) according to whether the link is external (i.e., starts with `http://` or `https://`) or internal to the Pelican-generated site.
+This Pelican plugin lets you to set the class attribute of `<a>` elements (generated in Markdown by `[ext](link)`), depending on whether the link is external (i.e., starts with `http://` or `https://`) or internal to the Pelican-generated site.
 
-For now, this plugin only works with Markdown. It has been tested with version 3.0+ of the Python-Markdown module and may not work with previous versions.
+Currently, this plugin only works with Markdown. It has been tested with version 3.0+ of the Python-Markdown module and may not work with earlier versions.
 
 
 Installation
@@ -20,13 +20,13 @@ This plugin [is available as a package](https://pypi.org/project/pelican-linkcla
 python -m pip install pelican-linkclass
 ```
 
-As long as you have not explicitly added a `PLUGINS` setting to your Pelican settings file, then the newly-installed plugin should be automatically detected and enabled. Otherwise, you must add `linkclass` to your existing `PLUGINS` list. For more information, please see the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
+As long as there is no `PLUGINS` setting in the Pelican settings file, the newly installed plugin should be detected and enabled automatically. Otherwise, you must add `linkclass` to your existing `PLUGINS` list. For more information, please refer to the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
 
 
 Configuration
 -------------
 
-In order to avoid clashes with already-defined classes in the user CSS style sheets, it is possible to specify the name of the classes that will be used. They can be specified in the Pelican setting file with the `LINKCLASS` variable, which must be defined as a list of tuples, like this:
+To avoid clashing with classes already defined in user CSS style sheets, it is possible to specify the names of the classes that will be used. This can be done in the Pelican settings file by defining the `LINKCLASS` variable as a list of tuples, such as in this example:
 
 ```python
 'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
@@ -39,14 +39,14 @@ The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are, respectively, 
 Styling Hyperlinks
 ------------------
 
-One of the possible uses of this plugin is for styling. Suppose that we have the following Markdown content in your article:
+One possible use of this plugin is for styling. Suppose that we have the following Markdown content in your article:
 
 ```markdown
 This is an [internal](internal) link and this is an
 [external](http://external.com) link.
 ```
 
-If the default configuration variable values are used, then one possible CSS setting could be:
+Using the default configuration variable values, a possible CSS setting could be:
 
 ```css
 a.external:before {
@@ -55,9 +55,9 @@ a.external:before {
 }
 ```
 
-(The file `external-link.png` is also distributed with this plugin. To use it, copy it to the appropriate place in your web site source tree, for instance in `theme/static/images/`.)
+(The `external-link.png` file is also distributed with this plugin. To use it, copy it to the appropriate location in your website's source tree, for instance in the `theme/static/images/` directory.)
 
-Then, the result will look like the following:
+The result will then look like this:
 
 ![figure](https://github.com/pelican-plugins/linkclass/raw/main/linkclass-example.png)
 
