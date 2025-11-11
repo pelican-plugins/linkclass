@@ -20,7 +20,7 @@ This plugin [is available as a package](https://pypi.org/project/pelican-linkcla
 python -m pip install pelican-linkclass
 ```
 
-As long as you have not explicitly added a `PLUGINS` setting to your Pelican settings file, then the newly-installed plugin should be automatically detected and enabled. Otherwise, you must add `avatar` to your existing `PLUGINS` list. For more information, please see the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
+As long as you have not explicitly added a `PLUGINS` setting to your Pelican settings file, then the newly-installed plugin should be automatically detected and enabled. Otherwise, you must add `linkclass` to your existing `PLUGINS` list. For more information, please see the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
 
 
 Configuration
@@ -39,7 +39,7 @@ The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are, respectively, 
 Styling Hyperlinks
 ------------------
 
-One of the possible uses of this plugins is for styling. Suppose that we have the following Markdown content in your article:
+One of the possible uses of this plugin is for styling. Suppose that we have the following Markdown content in your article:
 
 ```markdown
 This is an [internal](internal) link and this is an
