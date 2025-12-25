@@ -29,8 +29,8 @@ Configuration
 To avoid clashing with classes already defined in user CSS style sheets, it is possible to specify the names of the classes that will be used. This can be done in the Pelican settings file by defining the `LINKCLASS` variable as a list of tuples, such as in this example:
 
 ```python
-'LINKCLASS' = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
-               ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
+LINKCLASS = (('EXTERNAL_CLASS', 'name-of-the-class-for-external-links'),
+             ('INTERNAL_CLASS', 'name-of-the-class-for-internal-links'))
 ```
 
 The default values for `EXTERNAL_CLASS` and `INTERNAL_CLASS` are, respectively, `'external'` and `'internal'`.
