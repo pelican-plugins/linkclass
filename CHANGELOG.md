@@ -1,6 +1,18 @@
 CHANGELOG
 =========
 
+2.2.0 - 2026-10-14
+------------------
+
+Short reference links are now recognized. In the following example, the `example` link has the `"external"` class in the HTML output:
+
+```markdown
+Here's an [example] to consider
+ [example]: https://example.com
+````
+
+This fixes issue #43.
+
 2.1.6 - 2025-11-11
 ------------------
 
