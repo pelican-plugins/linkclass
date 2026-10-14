@@ -72,7 +72,7 @@ This is an [internal][internal] link and this is an
  [external]: http://external.com
 ```
 
-The short form of reference can also be used
+The short form of reference can also be used:
 
 ```markdown
 This is an [internal] link and this is an [external] link.
