@@ -20,8 +20,9 @@ This plugin [is available as a package](https://pypi.org/project/pelican-linkcla
 python -m pip install pelican-linkclass
 ```
 
-As long as there is no `PLUGINS` setting in the Pelican settings file, the newly installed plugin should be detected and enabled automatically. Otherwise, you must add `linkclass` to your existing `PLUGINS` list. For more information, please refer to the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
+As long as there is no `PLUGINS` setting in the Pelican settings file, the newly installed plugin should be detected and enabled automatically. Otherwise, you must add `linkclass` to your existing `PLUGINS` list. For more information, please refer to the [How to Use Plugins] documentation.
 
+[How to Use Plugins]: https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins
 
 Configuration
 -------------
@@ -84,9 +85,9 @@ This is an [internal] link and this is an [external] link.
 Contributing
 ------------
 
-Contributions are welcome and much appreciated. Every little bit helps. You can contribute by improving the documentation, adding missing features, and fixing bugs. You can also help out by reviewing and commenting on [existing issues][].
+Contributions are welcome and much appreciated. Every little bit helps. You can contribute by improving the documentation, adding missing features, and fixing bugs. You can also help out by reviewing and commenting on [existing issues].
 
-To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
+To start contributing to this plugin, review the [Contributing to Pelican] documentation, beginning with the **Contributing Code** section.
 
 [existing issues]: https://github.com/pelican-plugins/linkclass/issues
 [Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
@@ -95,7 +96,7 @@ To start contributing to this plugin, review the [Contributing to Pelican][] doc
 Acknowledgments
 ---------------
 
-Many thanks to [Yuliya Bagriy][] for setting up the package for [PyPI][], to [Lucas Cimon][] for fixing the issues with [pytest][], and to [Justin Mayer][] for helping with migration of this plugin under the Pelican Plugins organization.
+Many thanks to [Yuliya Bagriy] for setting up the package for [PyPI], to [Lucas Cimon] for fixing the issues with [pytest], and to [Justin Mayer] for helping with migration of this plugin under the Pelican Plugins organization.
 
 [Yuliya Bagriy]: https://github.com/aviskase
 [PyPI]: https://pypi.org/
