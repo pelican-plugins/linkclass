@@ -101,20 +101,27 @@ class TestLinkClass(unittest.TestCase):
 Date: 1970-01-01
 
 This is an [{INTERNAL_INLINE_TEXT}]({INTERNAL_INLINE_LINK}), inline-style link.
-This is an [{EXTERNAL_INLINE_TEXT_HTTP}]({EXTERNAL_INLINE_LINK_HTTP}), inline-style link (with http URL).
-This is an [{EXTERNAL_INLINE_TEXT_HTTPS}]({EXTERNAL_INLINE_LINK_HTTPS}), inline-style link (with https URL).
+This is an [{EXTERNAL_INLINE_TEXT_HTTP}]({EXTERNAL_INLINE_LINK_HTTP}),
+inline-style link (with http URL).
+This is an [{EXTERNAL_INLINE_TEXT_HTTPS}]({EXTERNAL_INLINE_LINK_HTTPS}),
+inline-style link (with https URL).
 
-This is an [{INTERNAL_REFERENCE_TEXT}][{INTERNAL_REFERENCE_LABEL}], reference-style link.
-This is an [{EXTERNAL_REFERENCE_TEXT_HTTP}][{EXTERNAL_REFERENCE_LABEL_HTTP}], reference-style link (with http URL).
-This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}], reference-style link (with https URL).
+This is an [{INTERNAL_REFERENCE_TEXT}][{INTERNAL_REFERENCE_LABEL}],
+reference-style link.
+This is an [{EXTERNAL_REFERENCE_TEXT_HTTP}][{EXTERNAL_REFERENCE_LABEL_HTTP}],
+reference-style link (with http URL).
+This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}],
+reference-style link (with https URL).
 
  [{INTERNAL_REFERENCE_LABEL}]: {INTERNAL_REFERENCE_LINK}
  [{EXTERNAL_REFERENCE_LABEL_HTTP}]: {EXTERNAL_REFERENCE_LINK_HTTP}
  [{EXTERNAL_REFERENCE_LABEL_HTTPS}]: {EXTERNAL_REFERENCE_LINK_HTTPS}
 
 This is an [{INTERNAL_SHORT_REFERENCE_TEXT}], short-reference-style link.
-This is an [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTP}], short-reference-style link (with http URL).
-This is an [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTPS}], short-reference-style link (with https URL).
+This is an [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTP}], short-reference-style link
+(with http URL).
+This is an [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTPS}], short-reference-style link
+(with https URL).
 
  [{INTERNAL_SHORT_REFERENCE_TEXT}]: {INTERNAL_SHORT_REFERENCE_LINK}
  [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTP}]: {EXTERNAL_SHORT_REFERENCE_LINK_HTTP}
