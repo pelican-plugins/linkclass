@@ -23,6 +23,7 @@ from markdown.inlinepatterns import (
     REFERENCE_RE,
     LinkInlineProcessor,
     ReferenceInlineProcessor,
+    ShortReferenceInlineProcessor,
 )
 
 LC_CONFIG = {"INTERNAL_CLASS": "internal", "EXTERNAL_CLASS": "external"}
@@ -63,6 +64,16 @@ class LinkClassExtension(Extension):
         ReferenceClassPattern = ReferenceClass(REFERENCE_RE, self.getConfigs())
         ReferenceClassPattern.md = md
         md.inlinePatterns.register(ReferenceClassPattern, "referenceclass", 200)
+        ShortReferenceClassPattern = ShortReferenceClass(
+            REFERENCE_RE,
+            self.getConfigs(),
+        )
+        ShortReferenceClassPattern.md = md
+        md.inlinePatterns.register(
+            ShortReferenceClassPattern,
+            "shortreferenceclass",
+            200,
+        )
 
 
 class LinkClass(LinkInlineProcessor):
@@ -84,6 +95,23 @@ class LinkClass(LinkInlineProcessor):
 
 class ReferenceClass(ReferenceInlineProcessor):
     """Markdown inline pattern processor for adding class attribute to inline-style references."""  # NOQA: E501
+
+    def __init__(self, pattern, config):
+        """Initialize the Markdwon inline pattern processor."""
+        super().__init__(pattern)
+        # Store the configuration dict
+        self.config = config
+
+    def handleMatch(self, m, data):
+        """Add the class attribute to the generated <a> element."""
+        # Build the <a> element using the parent class
+        elm, start, end = super().handleMatch(m, data)
+        # Return the <a> element with added class
+        return add_class(elm, self.config), start, end
+
+
+class ShortReferenceClass(ShortReferenceInlineProcessor):
+    """Markdown inline pattern processor for adding class attribute to inline-style short references."""  # NOQA: E501
 
     def __init__(self, pattern, config):
         """Initialize the Markdwon inline pattern processor."""

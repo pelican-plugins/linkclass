@@ -41,12 +41,18 @@ INTERNAL_REFERENCE_TEXT = "internal reference text"
 INTERNAL_REFERENCE_LABEL = "internal reference label"
 INTERNAL_REFERENCE_LINK = "internal-reference-link"
 
+INTERNAL_SHORT_REFERENCE_TEXT = "internal short reference text"
+INTERNAL_SHORT_REFERENCE_LINK = "internal-short-reference-link"
+
 EXTERNAL_INLINE_TEXT_HTTP = "external inline text http"
-EXTERNAL_INLINE_LINK_HTTP = "https://inline.org"
+EXTERNAL_INLINE_LINK_HTTP = "http://inline.org"
 
 EXTERNAL_REFERENCE_TEXT_HTTP = "external reference text http"
 EXTERNAL_REFERENCE_LABEL_HTTP = "external reference label http"
-EXTERNAL_REFERENCE_LINK_HTTP = "https://reference.org"
+EXTERNAL_REFERENCE_LINK_HTTP = "http://reference.org"
+
+EXTERNAL_SHORT_REFERENCE_TEXT_HTTP = "external short reference text http"
+EXTERNAL_SHORT_REFERENCE_LINK_HTTP = "http://short-reference.org"
 
 EXTERNAL_INLINE_TEXT_HTTPS = "external inline text https"
 EXTERNAL_INLINE_LINK_HTTPS = "https://inline.org"
@@ -54,6 +60,9 @@ EXTERNAL_INLINE_LINK_HTTPS = "https://inline.org"
 EXTERNAL_REFERENCE_TEXT_HTTPS = "external reference text https"
 EXTERNAL_REFERENCE_LABEL_HTTPS = "external reference label https"
 EXTERNAL_REFERENCE_LINK_HTTPS = "https://reference.org"
+
+EXTERNAL_SHORT_REFERENCE_TEXT_HTTPS = "external short reference text https"
+EXTERNAL_SHORT_REFERENCE_LINK_HTTPS = "https://short-reference.org"
 
 LINK_PATTERN = '<a class="{}" href="{}">{}</a>'
 
@@ -93,7 +102,7 @@ Date: 1970-01-01
 
 This is an [{INTERNAL_INLINE_TEXT}]({INTERNAL_INLINE_LINK}), inline-style link.
 This is an [{EXTERNAL_INLINE_TEXT_HTTP}]({EXTERNAL_INLINE_LINK_HTTP}), inline-style link (with http URL).
-This is an [{EXTERNAL_INLINE_TEXT_HTTPS}]({EXTERNAL_INLINE_LINK_HTTP}), inline-style link (with https URL).
+This is an [{EXTERNAL_INLINE_TEXT_HTTPS}]({EXTERNAL_INLINE_LINK_HTTPS}), inline-style link (with https URL).
 
 This is an [{INTERNAL_REFERENCE_TEXT}][{INTERNAL_REFERENCE_LABEL}], reference-style link.
 This is an [{EXTERNAL_REFERENCE_TEXT_HTTP}][{EXTERNAL_REFERENCE_LABEL_HTTP}], reference-style link (with http URL).
@@ -102,6 +111,14 @@ This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}], 
  [{INTERNAL_REFERENCE_LABEL}]: {INTERNAL_REFERENCE_LINK}
  [{EXTERNAL_REFERENCE_LABEL_HTTP}]: {EXTERNAL_REFERENCE_LINK_HTTP}
  [{EXTERNAL_REFERENCE_LABEL_HTTPS}]: {EXTERNAL_REFERENCE_LINK_HTTPS}
+
+This is an [{INTERNAL_SHORT_REFERENCE_TEXT}], short-reference-style link.
+This is an [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTP}], short-reference-style link (with http URL).
+This is an [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTPS}], short-reference-style link (with https URL).
+
+ [{INTERNAL_SHORT_REFERENCE_TEXT}]: {INTERNAL_SHORT_REFERENCE_LINK}
+ [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTP}]: {EXTERNAL_SHORT_REFERENCE_LINK_HTTP}
+ [{EXTERNAL_SHORT_REFERENCE_TEXT_HTTPS}]: {EXTERNAL_SHORT_REFERENCE_LINK_HTTPS}
 
 """)
 
@@ -176,7 +193,7 @@ This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}], 
             LINK_PATTERN.format(
                 EXTERNAL_CLASS,
                 EXTERNAL_REFERENCE_LINK_HTTP,
-                EXTERNAL_REFERENCE_TEXT_HTTPS,
+                EXTERNAL_REFERENCE_TEXT_HTTP,
             )
         )
 
@@ -187,5 +204,35 @@ This is an [{EXTERNAL_REFERENCE_TEXT_HTTPS}][{EXTERNAL_REFERENCE_LABEL_HTTPS}], 
                 EXTERNAL_CLASS,
                 EXTERNAL_REFERENCE_LINK_HTTPS,
                 EXTERNAL_REFERENCE_TEXT_HTTPS,
+            )
+        )
+
+    def test_internal_short_reference(self):
+        """Test for the internal reference link."""
+        assert self.search(
+            LINK_PATTERN.format(
+                INTERNAL_CLASS,
+                INTERNAL_SHORT_REFERENCE_LINK,
+                INTERNAL_SHORT_REFERENCE_TEXT,
+            )
+        )
+
+    def test_external_short_reference_http(self):
+        """Test for the external http reference link."""
+        assert self.search(
+            LINK_PATTERN.format(
+                EXTERNAL_CLASS,
+                EXTERNAL_SHORT_REFERENCE_LINK_HTTP,
+                EXTERNAL_SHORT_REFERENCE_TEXT_HTTP,
+            )
+        )
+
+    def test_external_short_reference_https(self):
+        """Test for the external https reference link."""
+        assert self.search(
+            LINK_PATTERN.format(
+                EXTERNAL_CLASS,
+                EXTERNAL_SHORT_REFERENCE_LINK_HTTPS,
+                EXTERNAL_SHORT_REFERENCE_TEXT_HTTPS,
             )
         )
