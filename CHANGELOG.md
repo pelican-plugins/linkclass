@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+2.2.1 - 2026-10-14
+------------------
+
+Minor changes in the `README.md` and update of copyright years.
+
 2.2.0 - 2026-10-14
 ------------------
 
